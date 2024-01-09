@@ -1,11 +1,18 @@
 class ATM:
 
     def __init__(self):
-        self.pin = ""
-        self.balance = 0
+        # using __ to hide the data from external user (encapsulation)
+        self.__pin = ""
+        self.__balance = 0
 
         self.menu()
 
+    def get_pin(self):
+        return self.__pin
+
+    def set_pin(self, new_pin):
+        self.__pin = new_pin
+        print("Pin changed")
 
     def menu(self):
         user_input = str(input("""
@@ -28,16 +35,16 @@ class ATM:
             print("Bye")
     
     def create_pin(self):
-        self.pin = input("Enter your pin: ")
+        self.__pin = input("Enter your pin: ")
         print("Pin set successfully")
 
         self.menu()
 
     def deposit(self):
         temp = input("Enter you pin: ")
-        if temp == self.pin:
+        if temp == self.__pin:
             amount = int(input("Enter the amount: "))
-            self.balance = self.balance + amount
+            self.__balance = self.__balance + amount
         else:
             print("Invalid pin")
 
@@ -45,10 +52,10 @@ class ATM:
 
     def withdraw(self):
         temp = input("Enter you pin: ")
-        if temp == self.pin:
+        if temp == self.__pin:
             amount = int(input("Enter the amount: "))
             if amount < self.balance:
-                self.balance = self.balance - amount
+                self.__balance = self.__balance - amount
                 print("Operation successful")
             else:
                 print("Insufficient funds")
@@ -59,8 +66,8 @@ class ATM:
 
     def check_balance(self):
         temp = input("Enter you pin: ")
-        if temp == self.pin:
-            print("Balance:", self.balance)
+        if temp == self.__pin:
+            print("Balance:", self.__balance)
         else:
             print("Invalid pin")
 
