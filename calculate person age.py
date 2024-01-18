@@ -10,6 +10,7 @@ class Person:
     def calculate_age(self):
         today = date.today()
         age = today.year - self.date_of_birth.year
+        # this check is used to handler conditions if DOB is ahead of current date
         if today < date(today.year, self.date_of_birth.month, self.date_of_birth.day):
             age -= 1
         return age
@@ -19,4 +20,4 @@ print("Person 1:")
 print("Name:", person1.name)
 print("Country:", person1.country)
 print("Date of Birth:", person1.date_of_birth)
-print("Ag:", person1.calculate_age())
+print("Agw:", person1.calculate_age())
