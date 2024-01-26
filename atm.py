@@ -1,18 +1,25 @@
 class ATM:
 
+    # constructor # special/magic/dunder methods
+    #  self is the current object on which we are working
     def __init__(self):
         # using __ to hide the data from external user (encapsulation)
         self.__pin = ""
         self.__balance = 0
-
+        # calling menu method
         self.menu()
 
+    # getter method
     def get_pin(self):
         return self.__pin
 
+    # setter method
     def set_pin(self, new_pin):
-        self.__pin = new_pin
-        print("Pin changed")
+        if type(new_pin) == str:
+            self.__pin = new_pin
+            print("Pin changed")
+        else:
+            print("Not allowed")
 
     def menu(self):
         user_input = str(input("""
@@ -33,7 +40,7 @@ class ATM:
             self.check_balance()
         else:
             print("Bye")
-    
+
     def create_pin(self):
         self.__pin = input("Enter your pin: ")
         print("Pin set successfully")
