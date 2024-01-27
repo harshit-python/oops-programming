@@ -1,19 +1,44 @@
 class ATM:
 
+    # class/static variable
+    __counter = 1
+
     # constructor # special/magic/dunder methods
     #  self is the current object on which we are working
     def __init__(self):
+
+        # instance variables
         # using __ to hide the data from external user (encapsulation)
         self.__pin = ""
         self.__balance = 0
-        # calling menu method
-        self.menu()
 
-    # getter method
+        # class/static variables
+        self.sno = ATM.__counter
+        ATM.__counter = ATM.__counter + 1
+
+        # calling menu method
+
+        # commenting this
+        # self.menu()
+
+    # getter method for counter
+    @staticmethod
+    def get_counter():
+        return ATM.__counter
+
+    # setter method for counter
+    @staticmethod
+    def set_counter(newVal):
+        if type(newVal) == int:
+            ATM.__counter = newVal
+        else:
+            print("Not Allowed")
+
+    # getter method for pin
     def get_pin(self):
         return self.__pin
 
-    # setter method
+    # setter method for pin
     def set_pin(self, new_pin):
         if type(new_pin) == str:
             self.__pin = new_pin
@@ -81,4 +106,12 @@ class ATM:
         self.menu()
 
 
-sbi = ATM()
+atm1 = ATM()
+atm2 = ATM()
+atm3 = ATM()
+
+print(atm1.sno)
+print(atm2.sno)
+print(atm3.sno)
+
+print("Counter value:", ATM.get_counter())
