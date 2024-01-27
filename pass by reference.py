@@ -1,23 +1,22 @@
 # customer class
 class Customer:
 
-    def __init__(self, name, gender) -> None:
+    # constructor
+    def __init__(self, name, age) -> None:
         self.name = name
-        self.gender = gender
+        self.age = age
+
+    # __str__ method to print name while we call and print object
+    def __str__(self) -> str:
+        return self.name
+
+    def intro(self):
+        print("I am", self.name, "and I am", self.age)
 
 
-# function to pass class object as an argument
-def greet(customer):
-    customer.name = "Harsh"
-    customer.gender = "Male"
+cust1 = Customer("Harsh", 25)
+cust2 = Customer("Sarika", 22)
 
-
-# creating a customer class object
-cust1 = Customer("Sarika", "Female")
-print(cust1.name, cust1.gender)
-
-# calling function pass by reference
-greet(cust1)
-
-# values will get updated here
-print(cust1.name, cust1.gender)
+list1 = [cust1, cust2]
+for i in list1:
+    i.intro()
