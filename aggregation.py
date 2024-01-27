@@ -10,6 +10,7 @@ class Customer:
         self.name = new_name
         self.address.change_address(new_city, new_pincode, new_state)
 
+
 class Address:
 
     def __init__(self, city, pincode, state):
@@ -23,9 +24,13 @@ class Address:
         self.pincode = new_pincode
         self.state = new_state
 
+
 add = Address("Sitarganj", 262405, "Uttarakhand")
 cust = Customer("Harsh", "Male", add)
 
+print(cust.address.city)
+
+# updating address
 cust.edit_profile("Shailesh", "Ramnagar", 244715, "Uttarakhand")
 
 print(cust.address.city)
