@@ -4,7 +4,7 @@ class Bank:
 
     def create_account(self, account_number, initial_balance=0):
         if account_number in self.customers:
-            print("Account number alreay exists.")
+            print("Account number already exists.")
         else:
             self.customers[account_number] = initial_balance
             print("Account created successfully.")
